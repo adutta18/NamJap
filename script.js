@@ -1,190 +1,1291 @@
-// ==========================================
-// DIGITAL JAPA MALA
-// ==========================================
-const clearBtn = document.getElementById("clearBtn");
-const popup=document.getElementById("popup");
-const mala = document.getElementById("mala");
-const countDisplay = document.getElementById("count");
-const totalDisplay = document.getElementById("total");
-const roundDisplay = document.getElementById("rounds");
+/* ==========================
+   GOOGLE FONT
+========================== */
 
-const chantBtn = document.getElementById("countBtn");
-const resetBtn = document.getElementById("resetBtn");
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-let currentCount = 0;
-let totalChants = 0;
-let completedRounds = 0;
+body{
 
-const TOTAL_BEADS = 108;
-const RADIUS = 240;
+    font-family:'Poppins',sans-serif;
 
-// ==============================
-// CREATE 108 BEADS
-// ==============================
+    background:
+    radial-gradient(circle at top,#fff9e6,#f9e7c3,#edd39a);
 
-for(let i=0;i<TOTAL_BEADS;i++){
+    min-height:100vh;
 
-    const bead=document.createElement("div");
+    display:flex;
 
-    bead.classList.add("bead");
+    justify-content:center;
 
-    if(i===107){
+    align-items:center;
 
-        bead.classList.add("guru");
+    overflow-x:hidden;
+
+    color:#5a3510;
+
+}
+
+/* Background Glow */
+
+.background-overlay{
+
+    position:fixed;
+
+    width:100%;
+
+    height:100%;
+
+    background:
+    radial-gradient(circle,#ffffff55 5%,transparent 70%);
+
+    z-index:-1;
+
+}
+
+/* ==========================
+      MAIN CONTAINER
+========================== */
+
+.container{
+
+    width:95%;
+
+    max-width:900px;
+
+    margin:30px auto;
+
+    padding:30px;
+
+    border-radius:30px;
+
+    background:rgba(255,250,240,.55);
+
+    backdrop-filter:blur(10px);
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,.18);
+
+}
+
+/* ==========================
+        HEADER
+========================== */
+
+header{
+
+    text-align:center;
+
+}
+
+header h1{
+
+    font-family:'Cinzel',serif;
+
+    font-size:58px;
+
+    color:#8b3c00;
+
+}
+
+header h2{
+
+    margin-top:10px;
+
+    font-family:'Cinzel',serif;
+
+    font-weight:500;
+
+    color:#7b4b18;
+
+}
+
+.divider{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:15px;
+
+    margin:18px 0;
+
+}
+
+.divider span{
+
+    width:120px;
+
+    height:2px;
+
+    background:#cfa85a;
+
+}
+
+/* ==========================
+       MALA AREA
+========================== */
+
+.mala-section{
+
+    margin-top:40px;
+
+    display:flex;
+
+    justify-content:center;
+
+}
+
+.mala-container{
+
+    position:relative;
+
+    width:520px;
+
+    height:520px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+/* Circle Placeholder */
+
+#mala{
+
+    position:absolute;
+
+    width:100%;
+
+    height:100%;
+
+    border-radius:50%;
+
+}
+
+/* ==========================
+      CENTER COUNTER
+========================== */
+
+.counter-box{
+
+    width:270px;
+
+    height:270px;
+
+    border-radius:50%;
+
+    background:
+    linear-gradient(#fffef9,#fbecc6);
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    box-shadow:
+    0 0 30px rgba(0,0,0,.12);
+
+    z-index:20;
+
+}
+
+.counter-box h3{
+
+    text-transform:uppercase;
+
+    letter-spacing:2px;
+
+    color:#6c3b05;
+
+}
+
+.counter-box h1{
+
+    font-size:95px;
+
+    margin:15px 0 0;
+
+    color:#4d2500;
+
+}
+
+.counter-box p{
+
+    font-size:40px;
+
+    margin-bottom:10px;
+
+}
+
+.small-divider{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin:15px 0;
+
+}
+
+.small-divider span{
+
+    width:60px;
+
+    height:2px;
+
+    background:#d2a353;
+
+}
+
+.counter-box h4{
+
+    color:#8c5a22;
+
+    background:#fff2d7;
+
+    padding:8px 20px;
+
+    border-radius:30px;
+
+    font-weight:500;
+
+}
+
+/* ==========================
+      BUTTONS
+========================== */
+
+.button-area{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:40px;
+
+    margin:50px 0;
+
+}
+
+.button-area button{
+
+    width:170px;
+
+    height:170px;
+
+    border:none;
+
+    border-radius:28px;
+
+    cursor:pointer;
+
+    color:white;
+
+    font-size:55px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    transition:.25s;
+
+}
+
+.button-area span{
+
+    font-size:22px;
+
+    margin-top:12px;
+
+    letter-spacing:1px;
+
+}
+
+#countBtn{
+
+    background:
+    linear-gradient(135deg,#ffb43d,#d76b00);
+
+    box-shadow:
+    0 10px 20px rgba(255,140,0,.4);
+
+}
+
+#resetBtn{
+
+    background:
+    linear-gradient(135deg,#b74b3b,#7e1f18);
+
+    box-shadow:
+    0 10px 20px rgba(120,0,0,.35);
+
+}
+
+.button-area button:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.button-area button:active{
+
+    transform:scale(.96);
+
+}
+
+/* ==========================
+       STATISTICS
+========================== */
+
+.stats{
+
+    display:flex;
+
+    gap:20px;
+
+    justify-content:center;
+
+    margin-bottom:35px;
+
+}
+
+.card{
+
+    width:300px;
+
+    background:white;
+
+    border-radius:22px;
+
+    padding:25px;
+
+    text-align:center;
+
+    box-shadow:
+    0 8px 20px rgba(0,0,0,.12);
+
+}
+
+.card h3{
+
+    color:#8c5310;
+
+    margin-bottom:15px;
+
+}
+
+.card h1{
+
+    font-size:48px;
+
+    color:#5c3000;
+
+}
+
+/* ==========================
+      MANTRA
+========================== */
+
+.mantra{
+
+    background:#fff6e7;
+
+    border-radius:20px;
+
+    padding:25px;
+
+    box-shadow:
+    0 5px 15px rgba(0,0,0,.08);
+
+}
+
+.quote{
+
+    display:flex;
+
+    gap:20px;
+
+    align-items:center;
+
+}
+
+.quote span{
+
+    font-size:60px;
+
+    color:#d17900;
+
+}
+
+.quote p{
+
+    font-size:22px;
+
+    line-height:1.8;
+
+    color:#6c3c07;
+
+}
+
+/* ==========================
+      FOOTER
+========================== */
+
+footer{
+
+    margin-top:35px;
+
+    background:#4a2604;
+
+    color:white;
+
+    padding:18px 25px;
+
+    border-radius:18px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+.icon-btn{
+
+    width:50px;
+
+    height:50px;
+
+    border:none;
+
+    border-radius:50%;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+    background:#6c4215;
+
+    color:white;
+
+}
+
+footer p{
+
+    text-align:center;
+
+    font-size:16px;
+
+}
+
+/* ==========================
+     MOBILE
+========================== */
+
+@media(max-width:768px){
+
+header h1{
+
+font-size:42px;
+
+}
+
+.mala-container{
+
+width:330px;
+
+height: 330px;
+
+}
+
+.counter-box{
+
+width:180px;
+
+height: 180px;
+}
+
+.counter-box h1{
+
+font-size:70px;
+
+}
+
+.button-area{
+
+flex-direction:column;
+
+align-items:center;
+
+}
+
+.button-area button{
+
+width:140px;
+
+height:140px;
+
+}
+
+.stats{
+
+flex-direction:column;
+
+align-items:center;
+
+}
+
+.card{
+
+width:100%;
+
+}
+
+.quote{
+
+flex-direction:column;
+
+text-align:center;
+
+}
+
+footer{
+
+flex-direction:column;
+
+gap:15px;
+
+}
+
+}
+/*=========================================
+        DIGITAL JAPA MALA BEADS
+==========================================*/
+
+#mala{
+
+    position:absolute;
+    width:100%;
+    height:100%;
+    border-radius:50%;
+}
+
+/* Individual Beads */
+
+.bead{
+
+    position:absolute;
+
+    width:22px;
+    height:22px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(circle at 30% 30%,
+    #d8a86d 0%,
+    #b87836 35%,
+    #8d5524 70%,
+    #603813 100%);
+
+    border:2px solid #704214;
+
+    box-shadow:
+    inset -2px -2px 5px rgba(0,0,0,.35),
+    inset 2px 2px 5px rgba(255,255,255,.25),
+    0 3px 8px rgba(0,0,0,.25);
+
+    transition:.35s;
+
+}
+
+/* Active Bead */
+
+.bead.active{
+
+    background:
+    radial-gradient(circle,
+    #fff9b0,
+    #ffd54f,
+    #ff9800);
+
+    border:2px solid #ff9800;
+
+    box-shadow:
+    0 0 12px gold,
+    0 0 22px orange,
+    0 0 35px yellow;
+
+    transform:scale(1.3);
+
+}
+
+/* Guru Bead */
+
+.bead.guru{
+
+    width:34px;
+    height:34px;
+
+    background:
+    radial-gradient(circle,
+    #ffd699,
+    #d18b32,
+    #8b5a2b);
+
+    border:3px solid #5d3207;
+
+}
+
+/* Wooden Thread */
+
+#mala::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    width:410px;
+    height:410px;
+
+    transform:translate(-50%,-50%);
+
+    border-radius:50%;
+
+    border:4px dashed rgba(150,95,40,.15);
+
+}
+
+/*===============================
+       TASSEL
+================================*/
+
+.tassel{
+
+    position:absolute;
+
+    bottom:-60px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+}
+
+.tassel-top{
+
+    width:14px;
+    height:30px;
+
+    background:#9c6027;
+
+    border-radius:8px;
+
+}
+
+.tassel-line{
+
+    width:3px;
+    height:35px;
+
+    background:#8d5524;
+
+}
+
+.tassel-threads{
+
+    display:flex;
+    gap:3px;
+
+}
+
+.tassel-threads span{
+
+    width:3px;
+    height:35px;
+
+    background:#d39b5d;
+
+    border-radius:5px;
+
+}
+
+/*===============================
+     FLOATING LOTUS
+================================*/
+
+.mala-container::before{
+
+    content:"🪷";
+
+    position:absolute;
+
+    left:-40px;
+    top:30px;
+
+    font-size:45px;
+
+    opacity:.6;
+
+}
+
+.mala-container::after{
+
+    content:"🌸";
+
+    position:absolute;
+
+    right:-35px;
+    bottom:50px;
+
+    font-size:38px;
+
+    opacity:.7;
+
+}
+
+/*===============================
+     GLOWING CENTER
+================================*/
+
+.counter-box{
+
+    position:relative;
+
+}
+
+.counter-box::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:-12px;
+
+    border-radius:50%;
+
+    background:
+
+    radial-gradient(circle,
+    rgba(255,220,100,.35),
+    transparent 70%);
+
+    z-index:-1;
+
+}
+
+/*===============================
+     BUTTON EFFECTS
+================================*/
+
+#countBtn:hover{
+
+    box-shadow:
+
+    0 0 20px orange,
+
+    0 0 40px #ff9800;
+
+}
+
+#resetBtn:hover{
+
+    box-shadow:
+
+    0 0 20px #b93d3d,
+
+    0 0 40px #962020;
+
+}
+
+/*===============================
+      CARD HOVER
+================================*/
+
+.card{
+
+    transition:.3s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:
+
+    0 15px 30px rgba(0,0,0,.15);
+
+}
+
+/*===============================
+      MANTRA ANIMATION
+================================*/
+
+.mantra{
+
+    animation:floatCard 4s ease-in-out infinite;
+
+}
+
+@keyframes floatCard{
+
+    0%{
+
+        transform:translateY(0);
 
     }
 
-    const angle=(360/TOTAL_BEADS)*i;
+    50%{
 
-    bead.style.left="50%";
-    bead.style.top="50%";
+        transform:translateY(-6px);
 
-    bead.style.transform=
-    `
-    rotate(${angle}deg)
-    translate(${RADIUS}px)
-    rotate(-${angle}deg)
-    `;
+    }
 
-    mala.appendChild(bead);
+    100%{
 
-}
-
-const beads=document.querySelectorAll(".bead");
-
-// ==============================
-// UPDATE SCREEN
-// ==============================
-function closePopup(){
-
-popup.classList.remove("show");
-
-}
-function updateDisplay(){
-
-    countDisplay.innerHTML=currentCount;
-
-    totalDisplay.innerHTML=totalChants;
-
-    roundDisplay.innerHTML=completedRounds;
-
-    beads.forEach(bead=>{
-
-        bead.classList.remove("active");
-
-    });
-
-    if(currentCount>0){
-
-        beads[currentCount-1].classList.add("active");
+        transform:translateY(0);
 
     }
 
 }
 
-// ==============================
-// COUNT BUTTON
-// ==============================
+/*===============================
+      GLOW ANIMATION
+================================*/
 
-chantBtn.addEventListener("click",()=>{
+@keyframes glow{
 
-    if(currentCount<108){
+    0%{
 
-        currentCount++;
+        box-shadow:
 
-        totalChants++;
-
-        // Mobile vibration
-
-        if(navigator.vibrate){
-
-            navigator.vibrate(30);
-
-        }
-
-        updateDisplay();
+        0 0 8px gold;
 
     }
 
-    if(currentCount===108){
+    50%{
 
-        completedRounds++;
-        popup.classList.add("show");
+        box-shadow:
 
-lotusRain();
+        0 0 25px orange,
 
-        roundDisplay.innerHTML=completedRounds;
-
-        setTimeout(()=>{
-
-            alert("🌸 Haribol!\n\nYou completed one full Japa Mala!\n\nHare Krishna!");
-
-        },300);
+        0 0 40px gold;
 
     }
 
-});
+    100%{
 
-// ==============================
-// RESET BUTTON
-// ==============================
+        box-shadow:
 
-resetBtn.addEventListener("click",()=>{
+        0 0 8px gold;
 
-    currentCount=0;
+    }
 
-    updateDisplay();
+}
 
-});
+.bead.active{
 
-// ==============================
-// INITIAL
-// ==============================
+    animation:glow .8s infinite;
 
-updateDisplay();
-function lotusRain(){
+}
 
-for(let i=0;i<30;i++){
+/*===============================
+      MOBILE
+================================*/
 
-const flower=document.createElement("div");
+/* ==========================================
+   MOBILE VIEW (Max 600px)
+========================================== */
 
-flower.className="lotus";
+@media screen and (max-width:600px){
 
-flower.innerHTML=Math.random()>.5?"🌸":"🪷";
+.container{
+    width:100%;
+    padding:15px;
+    border-radius:0;
+}
 
-flower.style.left=Math.random()*100+"vw";
+header h1{
+    font-size:42px;
+}
 
-flower.style.animationDuration=
+header h2{
+    font-size:24px;
+}
 
-2+Math.random()*3+"s";
+header h4{
+    Padding: 50vh;
+    font-size:24px;
+}
+.divider{
+    margin:10px 0 25px;
+}
 
-document.body.appendChild(flower);
+/* Mala */
 
-setTimeout(()=>{
+.mala-container{
 
-flower.remove();
+    width:320px;
+    height:320px;
 
-},5000);
+    margin:auto;
+    position:relative;
+
+}
+
+.counter-box{
+
+    width:170px;
+    height:170px;
+
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    padding:10px;
+
+}
+
+/* Current Count */
+
+.counter-box h3{
+
+    font-size:14px;
+    line-height:1.3;
+    text-align:center;
+    margin:0 0 5px;
+    padding-bottom: 12vh;
+    letter-spacing:1px;
+
+}
+
+/* Number */
+
+.counter-box h1{
+
+    font-size:58px;
+    line-height:1;
+    margin:5px 0;
+    padding:0;
+
+}
+
+/* /108 */
+
+.counter-box p{
+
+    font-size:24px;
+    margin:0;
+    padding:0;
+
+}
+
+/* Divider */
+
+.small-divider{
+
+    margin:8px 0;
+
+}
+
+.small-divider span{
+
+    width:40px;
+   margin-bottom: auto;
+   margin-left: auto;
+    
+
+}
+
+/* Chant and Be Happy */
+
+.counter-box h4{
+
+   font-size:10px;
+    margin:0;
+    padding:0px 10px;
+    text-align:center;
+    line-height:1.3;
+
+
+}
+/* Beads */
+
+.bead{
+
+    width:14px;
+    height:14px;
+
+}
+
+.bead.guru{
+
+    width:20px;
+    height:20px;
+
+}
+
+#mala::before{
+
+    width:250px;
+    height:250px;
+
+}
+
+/* Buttons */
+
+.button-area{
+
+    gap:15px;
+
+}
+
+.button-area button{
+
+    width:110px;
+    height:110px;
+
+    font-size:35px;
+
+}
+
+.button-area span{
+
+    font-size:15px;
+
+}
+
+/* Cards */
+
+.stats{
+
+    flex-direction:column;
+
+}
+
+.card{
+
+    width:100%;
+
+}
+
+/* Footer */
+
+footer{
+
+    flex-direction:column;
+
+    gap:10px;
 
 }
 
 }
-clearBtn.addEventListener("click",()=>{
+/* ==============================
+   PREMIUM BUTTON ANIMATION
+============================== */
 
-    const confirmClear = confirm(
-        "Are you sure?\n\nThis will erase all your chanting data."
-    );
+#countBtn{
+    position:relative;
+    overflow:hidden;
+}
 
-    if(!confirmClear) return;
+#countBtn::before{
 
-    currentCount = 0;
-    totalChants = 0;
-    completedRounds = 0;
+    content:"";
 
-    localStorage.removeItem("count");
-    localStorage.removeItem("total");
-    localStorage.removeItem("rounds");
+    position:absolute;
 
-    updateDisplay();
+    top:-100%;
+    left:-100%;
 
-});
+    width:300%;
+    height:300%;
+
+    background:
+    linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,.5),
+    transparent);
+
+    transform:rotate(25deg);
+
+    transition:.8s;
+
+}
+
+#countBtn:hover::before{
+
+    left:100%;
+}
+
+/* ==============================
+   LOTUS ANIMATION
+============================== */
+
+.lotus{
+
+    position:fixed;
+
+    font-size:24px;
+
+    animation:fall 4s linear forwards;
+
+    pointer-events:none;
+
+    z-index:999;
+}
+
+@keyframes fall{
+
+    0%{
+
+        transform:
+        translateY(-50px)
+        rotate(0deg);
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        transform:
+        translateY(100vh)
+        rotate(360deg);
+
+        opacity:0;
+
+    }
+
+}
+
+/* ==============================
+   CELEBRATION POPUP
+============================== */
+
+.popup{
+
+    position:fixed;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    background:white;
+
+    padding:35px;
+
+    width:320px;
+
+    border-radius:25px;
+
+    text-align:center;
+
+    box-shadow:0 20px 50px rgba(0,0,0,.25);
+
+    display:none;
+
+    z-index:9999;
+
+}
+
+.popup.show{
+
+    display:block;
+
+    animation:popup .5s;
+
+}
+
+@keyframes popup{
+
+    from{
+
+        transform:
+        translate(-50%,-60%)
+        scale(.6);
+
+        opacity:0;
+
+    }
+
+    to{
+
+        transform:
+        translate(-50%,-50%)
+        scale(1);
+
+        opacity:1;
+
+    }
+
+}
+
+.popup h2{
+
+    color:#d97706;
+
+    margin-bottom:15px;
+
+}
+
+.popup button{
+
+    margin-top:20px;
+
+    padding:12px 28px;
+
+    border:none;
+
+    border-radius:25px;
+
+    background:#ff9800;
+
+    color:white;
+
+    cursor:pointer;
+
+}
+#clearBtn{
+
+    background:linear-gradient(135deg,#555,#222);
+
+    color:white;
+
+    box-shadow:0 10px 20px rgba(0,0,0,.3);
+
+}
