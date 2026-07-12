@@ -16,7 +16,7 @@ const popup = document.getElementById("popup");
 const bgMusic = document.getElementById("bgMusic");
 
 // Sounds
-const bell = new Audio("sounds/bell.mp3");
+const bell = new Audio("sound/bell.mp3");
 bell.volume = 0.6;
 
 // Variables
