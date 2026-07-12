@@ -1,1291 +1,270 @@
-/* ==========================
-   GOOGLE FONT
-========================== */
+// ======================================
+// DIGITAL JAPA MALA
+// ======================================
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body{
-
-    font-family:'Poppins',sans-serif;
-
-    background:
-    radial-gradient(circle at top,#fff9e6,#f9e7c3,#edd39a);
-
-    min-height:100vh;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    overflow-x:hidden;
-
-    color:#5a3510;
-
-}
-
-/* Background Glow */
-
-.background-overlay{
-
-    position:fixed;
-
-    width:100%;
-
-    height:100%;
-
-    background:
-    radial-gradient(circle,#ffffff55 5%,transparent 70%);
-
-    z-index:-1;
-
-}
-
-/* ==========================
-      MAIN CONTAINER
-========================== */
-
-.container{
-
-    width:95%;
-
-    max-width:900px;
-
-    margin:30px auto;
-
-    padding:30px;
-
-    border-radius:30px;
-
-    background:rgba(255,250,240,.55);
-
-    backdrop-filter:blur(10px);
-
-    box-shadow:
-    0 15px 40px rgba(0,0,0,.18);
-
-}
-
-/* ==========================
-        HEADER
-========================== */
-
-header{
-
-    text-align:center;
-
-}
-
-header h1{
-
-    font-family:'Cinzel',serif;
-
-    font-size:58px;
-
-    color:#8b3c00;
-
-}
-
-header h2{
-
-    margin-top:10px;
-
-    font-family:'Cinzel',serif;
-
-    font-weight:500;
-
-    color:#7b4b18;
-
-}
-
-.divider{
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    gap:15px;
-
-    margin:18px 0;
-
-}
-
-.divider span{
-
-    width:120px;
-
-    height:2px;
-
-    background:#cfa85a;
-
-}
-
-/* ==========================
-       MALA AREA
-========================== */
-
-.mala-section{
-
-    margin-top:40px;
-
-    display:flex;
-
-    justify-content:center;
-
-}
-
-.mala-container{
-
-    position:relative;
-
-    width:520px;
-
-    height:520px;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-}
-
-/* Circle Placeholder */
-
-#mala{
-
-    position:absolute;
-
-    width:100%;
-
-    height:100%;
-
-    border-radius:50%;
-
-}
-
-/* ==========================
-      CENTER COUNTER
-========================== */
-
-.counter-box{
-
-    width:270px;
-
-    height:270px;
-
-    border-radius:50%;
-
-    background:
-    linear-gradient(#fffef9,#fbecc6);
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    align-items:center;
-
-    box-shadow:
-    0 0 30px rgba(0,0,0,.12);
-
-    z-index:20;
-
-}
-
-.counter-box h3{
-
-    text-transform:uppercase;
-
-    letter-spacing:2px;
-
-    color:#6c3b05;
-
-}
-
-.counter-box h1{
-
-    font-size:95px;
-
-    margin:15px 0 0;
-
-    color:#4d2500;
-
-}
-
-.counter-box p{
-
-    font-size:40px;
-
-    margin-bottom:10px;
-
-}
-
-.small-divider{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:10px;
-
-    margin:15px 0;
-
-}
-
-.small-divider span{
-
-    width:60px;
-
-    height:2px;
-
-    background:#d2a353;
-
-}
-
-.counter-box h4{
-
-    color:#8c5a22;
-
-    background:#fff2d7;
-
-    padding:8px 20px;
-
-    border-radius:30px;
-
-    font-weight:500;
-
-}
-
-/* ==========================
-      BUTTONS
-========================== */
-
-.button-area{
-
-    display:flex;
-
-    justify-content:center;
-
-    gap:40px;
-
-    margin:50px 0;
-
-}
-
-.button-area button{
-
-    width:170px;
-
-    height:170px;
-
-    border:none;
-
-    border-radius:28px;
-
-    cursor:pointer;
-
-    color:white;
-
-    font-size:55px;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    align-items:center;
-
-    transition:.25s;
-
-}
-
-.button-area span{
-
-    font-size:22px;
-
-    margin-top:12px;
-
-    letter-spacing:1px;
-
-}
-
-#countBtn{
-
-    background:
-    linear-gradient(135deg,#ffb43d,#d76b00);
-
-    box-shadow:
-    0 10px 20px rgba(255,140,0,.4);
-
-}
-
-#resetBtn{
-
-    background:
-    linear-gradient(135deg,#b74b3b,#7e1f18);
-
-    box-shadow:
-    0 10px 20px rgba(120,0,0,.35);
-
-}
-
-.button-area button:hover{
-
-    transform:translateY(-8px);
-
-}
-
-.button-area button:active{
-
-    transform:scale(.96);
-
-}
-
-/* ==========================
-       STATISTICS
-========================== */
-
-.stats{
-
-    display:flex;
-
-    gap:20px;
-
-    justify-content:center;
-
-    margin-bottom:35px;
-
-}
-
-.card{
-
-    width:300px;
-
-    background:white;
-
-    border-radius:22px;
-
-    padding:25px;
-
-    text-align:center;
-
-    box-shadow:
-    0 8px 20px rgba(0,0,0,.12);
-
-}
-
-.card h3{
-
-    color:#8c5310;
-
-    margin-bottom:15px;
-
-}
-
-.card h1{
-
-    font-size:48px;
-
-    color:#5c3000;
-
-}
+// HTML Elements
+const mala = document.getElementById("mala");
+const countDisplay = document.getElementById("count");
+const totalDisplay = document.getElementById("total");
+const roundDisplay = document.getElementById("rounds");
 
-/* ==========================
-      MANTRA
-========================== */
+const chantBtn = document.getElementById("countBtn");
+const resetBtn = document.getElementById("resetBtn");
+const clearBtn = document.getElementById("clearBtn");
 
-.mantra{
+const popup = document.getElementById("popup");
+const bgMusic = document.getElementById("bgMusic");
 
-    background:#fff6e7;
+// Sounds
+const bell = new Audio("sounds/bell.mp3");
+bell.volume = 0.6;
 
-    border-radius:20px;
+// Variables
+const TOTAL_BEADS = 108;
 
-    padding:25px;
+let currentCount = parseInt(localStorage.getItem("count")) || 0;
+let totalChants = parseInt(localStorage.getItem("total")) || 0;
+let completedRounds = parseInt(localStorage.getItem("rounds")) || 0;
 
-    box-shadow:
-    0 5px 15px rgba(0,0,0,.08);
+let musicStarted = false;
 
-}
-
-.quote{
-
-    display:flex;
-
-    gap:20px;
-
-    align-items:center;
-
-}
-
-.quote span{
-
-    font-size:60px;
-
-    color:#d17900;
-
-}
-
-.quote p{
-
-    font-size:22px;
-
-    line-height:1.8;
-
-    color:#6c3c07;
-
-}
-
-/* ==========================
-      FOOTER
-========================== */
-
-footer{
-
-    margin-top:35px;
-
-    background:#4a2604;
-
-    color:white;
-
-    padding:18px 25px;
-
-    border-radius:18px;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-}
-
-.icon-btn{
-
-    width:50px;
-
-    height:50px;
-
-    border:none;
-
-    border-radius:50%;
-
-    font-size:22px;
-
-    cursor:pointer;
-
-    background:#6c4215;
-
-    color:white;
-
-}
-
-footer p{
-
-    text-align:center;
-
-    font-size:16px;
-
-}
-
-/* ==========================
-     MOBILE
-========================== */
-
-@media(max-width:768px){
-
-header h1{
-
-font-size:42px;
-
-}
-
-.mala-container{
-
-width:330px;
-
-height: 330px;
-
-}
-
-.counter-box{
-
-width:180px;
-
-height: 180px;
-}
-
-.counter-box h1{
-
-font-size:70px;
-
-}
-
-.button-area{
-
-flex-direction:column;
-
-align-items:center;
-
-}
-
-.button-area button{
-
-width:140px;
-
-height:140px;
-
-}
-
-.stats{
-
-flex-direction:column;
-
-align-items:center;
-
-}
-
-.card{
-
-width:100%;
-
-}
-
-.quote{
-
-flex-direction:column;
-
-text-align:center;
-
-}
-
-footer{
-
-flex-direction:column;
-
-gap:15px;
-
-}
-
-}
-/*=========================================
-        DIGITAL JAPA MALA BEADS
-==========================================*/
-
-#mala{
-
-    position:absolute;
-    width:100%;
-    height:100%;
-    border-radius:50%;
-}
-
-/* Individual Beads */
-
-.bead{
-
-    position:absolute;
-
-    width:22px;
-    height:22px;
-
-    border-radius:50%;
-
-    background:
-    radial-gradient(circle at 30% 30%,
-    #d8a86d 0%,
-    #b87836 35%,
-    #8d5524 70%,
-    #603813 100%);
-
-    border:2px solid #704214;
-
-    box-shadow:
-    inset -2px -2px 5px rgba(0,0,0,.35),
-    inset 2px 2px 5px rgba(255,255,255,.25),
-    0 3px 8px rgba(0,0,0,.25);
+// ======================================
+// Responsive Radius
+// ======================================
 
-    transition:.35s;
+function getRadius() {
 
-}
-
-/* Active Bead */
-
-.bead.active{
-
-    background:
-    radial-gradient(circle,
-    #fff9b0,
-    #ffd54f,
-    #ff9800);
-
-    border:2px solid #ff9800;
-
-    box-shadow:
-    0 0 12px gold,
-    0 0 22px orange,
-    0 0 35px yellow;
-
-    transform:scale(1.3);
-
-}
-
-/* Guru Bead */
-
-.bead.guru{
-
-    width:34px;
-    height:34px;
-
-    background:
-    radial-gradient(circle,
-    #ffd699,
-    #d18b32,
-    #8b5a2b);
-
-    border:3px solid #5d3207;
-
-}
-
-/* Wooden Thread */
-
-#mala::before{
-
-    content:"";
-
-    position:absolute;
-
-    left:50%;
-    top:50%;
-
-    width:410px;
-    height:410px;
-
-    transform:translate(-50%,-50%);
-
-    border-radius:50%;
-
-    border:4px dashed rgba(150,95,40,.15);
-
-}
-
-/*===============================
-       TASSEL
-================================*/
-
-.tassel{
-
-    position:absolute;
-
-    bottom:-60px;
-    left:50%;
-
-    transform:translateX(-50%);
-
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-
-}
-
-.tassel-top{
-
-    width:14px;
-    height:30px;
-
-    background:#9c6027;
-
-    border-radius:8px;
-
-}
-
-.tassel-line{
-
-    width:3px;
-    height:35px;
-
-    background:#8d5524;
-
-}
-
-.tassel-threads{
-
-    display:flex;
-    gap:3px;
-
-}
-
-.tassel-threads span{
-
-    width:3px;
-    height:35px;
-
-    background:#d39b5d;
-
-    border-radius:5px;
+    if (window.innerWidth <= 480) return 120;
 
-}
-
-/*===============================
-     FLOATING LOTUS
-================================*/
-
-.mala-container::before{
-
-    content:"🪷";
-
-    position:absolute;
-
-    left:-40px;
-    top:30px;
-
-    font-size:45px;
-
-    opacity:.6;
-
-}
-
-.mala-container::after{
-
-    content:"🌸";
-
-    position:absolute;
-
-    right:-35px;
-    bottom:50px;
-
-    font-size:38px;
-
-    opacity:.7;
-
-}
-
-/*===============================
-     GLOWING CENTER
-================================*/
-
-.counter-box{
-
-    position:relative;
-
-}
-
-.counter-box::before{
-
-    content:"";
-
-    position:absolute;
-
-    inset:-12px;
+    if (window.innerWidth <= 768) return 145;
 
-    border-radius:50%;
+    return 220;
 
-    background:
-
-    radial-gradient(circle,
-    rgba(255,220,100,.35),
-    transparent 70%);
-
-    z-index:-1;
-
-}
-
-/*===============================
-     BUTTON EFFECTS
-================================*/
-
-#countBtn:hover{
-
-    box-shadow:
-
-    0 0 20px orange,
-
-    0 0 40px #ff9800;
-
-}
-
-#resetBtn:hover{
-
-    box-shadow:
-
-    0 0 20px #b93d3d,
-
-    0 0 40px #962020;
-
-}
-
-/*===============================
-      CARD HOVER
-================================*/
-
-.card{
-
-    transition:.3s;
-
 }
-
-.card:hover{
-
-    transform:translateY(-8px);
 
-    box-shadow:
+// ======================================
+// Create Mala
+// ======================================
 
-    0 15px 30px rgba(0,0,0,.15);
+function createBeads() {
 
-}
-
-/*===============================
-      MANTRA ANIMATION
-================================*/
+    mala.innerHTML = "";
 
-.mantra{
+    const radius = getRadius();
 
-    animation:floatCard 4s ease-in-out infinite;
-
-}
+    for (let i = 0; i < TOTAL_BEADS; i++) {
 
-@keyframes floatCard{
+        const bead = document.createElement("div");
 
-    0%{
+        bead.classList.add("bead");
 
-        transform:translateY(0);
+        if (i === 107) {
 
-    }
+            bead.classList.add("guru");
 
-    50%{
+        }
 
-        transform:translateY(-6px);
+        const angle = (360 / TOTAL_BEADS) * i;
 
-    }
+        bead.style.left = "50%";
+        bead.style.top = "50%";
 
-    100%{
+        bead.style.transform =
+            `rotate(${angle}deg)
+             translate(${radius}px)
+             rotate(-${angle}deg)`;
 
-        transform:translateY(0);
+        mala.appendChild(bead);
 
     }
 
 }
 
-/*===============================
-      GLOW ANIMATION
-================================*/
+createBeads();
 
-@keyframes glow{
+let beads = document.querySelectorAll(".bead");
 
-    0%{
+// ======================================
+// Save Data
+// ======================================
 
-        box-shadow:
+function saveData() {
 
-        0 0 8px gold;
+    localStorage.setItem("count", currentCount);
+    localStorage.setItem("total", totalChants);
+    localStorage.setItem("rounds", completedRounds);
+
+}
+
+// ======================================
+// Update Screen
+// ======================================
+
+function updateDisplay() {
+
+    countDisplay.textContent = currentCount;
+    totalDisplay.textContent = totalChants;
+    roundDisplay.textContent = completedRounds;
+
+    beads.forEach(bead => bead.classList.remove("active"));
+
+    if (currentCount > 0) {
+
+        beads[currentCount - 1].classList.add("active");
 
     }
 
-    50%{
-
-        box-shadow:
-
-        0 0 25px orange,
-
-        0 0 40px gold;
-
-    }
-
-    100%{
-
-        box-shadow:
-
-        0 0 8px gold;
-
-    }
+    saveData();
 
 }
 
-.bead.active{
+updateDisplay();
 
-    animation:glow .8s infinite;
+// ======================================
+// Play Bell
+// ======================================
 
-}
+function playBell() {
 
-/*===============================
-      MOBILE
-================================*/
+    bell.pause();
 
-/* ==========================================
-   MOBILE VIEW (Max 600px)
-========================================== */
+    bell.currentTime = 0;
 
-@media screen and (max-width:600px){
-
-.container{
-    width:100%;
-    padding:15px;
-    border-radius:0;
-}
-
-header h1{
-    font-size:42px;
-}
-
-header h2{
-    font-size:24px;
-}
-
-header h4{
-    Padding: 50vh;
-    font-size:24px;
-}
-.divider{
-    margin:10px 0 25px;
-}
-
-/* Mala */
-
-.mala-container{
-
-    width:320px;
-    height:320px;
-
-    margin:auto;
-    position:relative;
+    bell.play().catch(() => { });
 
 }
 
-.counter-box{
+// ======================================
+// Close Popup
+// ======================================
 
-    width:170px;
-    height:170px;
+function closePopup() {
 
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
-
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-
-    padding:10px;
+    popup.classList.remove("show");
 
 }
 
-/* Current Count */
+// ======================================
+// Lotus Animation
+// ======================================
 
-.counter-box h3{
+function lotusRain() {
 
-    font-size:14px;
-    line-height:1.3;
-    text-align:center;
-    margin:0 0 5px;
-    padding-bottom: 12vh;
-    letter-spacing:1px;
+    for (let i = 0; i < 30; i++) {
 
-}
+        const flower = document.createElement("div");
 
-/* Number */
+        flower.className = "lotus";
 
-.counter-box h1{
+        flower.innerHTML = Math.random() > 0.5 ? "🌸" : "🪷";
 
-    font-size:58px;
-    line-height:1;
-    margin:5px 0;
-    padding:0;
+        flower.style.left = Math.random() * 100 + "vw";
 
-}
+        flower.style.animationDuration = (2 + Math.random() * 3) + "s";
 
-/* /108 */
+        document.body.appendChild(flower);
 
-.counter-box p{
+        setTimeout(() => {
 
-    font-size:24px;
-    margin:0;
-    padding:0;
+            flower.remove();
 
-}
-
-/* Divider */
-
-.small-divider{
-
-    margin:8px 0;
-
-}
-
-.small-divider span{
-
-    width:40px;
-   margin-bottom: auto;
-   margin-left: auto;
-    
-
-}
-
-/* Chant and Be Happy */
-
-.counter-box h4{
-
-   font-size:10px;
-    margin:0;
-    padding:0px 10px;
-    text-align:center;
-    line-height:1.3;
-
-
-}
-/* Beads */
-
-.bead{
-
-    width:14px;
-    height:14px;
-
-}
-
-.bead.guru{
-
-    width:20px;
-    height:20px;
-
-}
-
-#mala::before{
-
-    width:250px;
-    height:250px;
-
-}
-
-/* Buttons */
-
-.button-area{
-
-    gap:15px;
-
-}
-
-.button-area button{
-
-    width:110px;
-    height:110px;
-
-    font-size:35px;
-
-}
-
-.button-area span{
-
-    font-size:15px;
-
-}
-
-/* Cards */
-
-.stats{
-
-    flex-direction:column;
-
-}
-
-.card{
-
-    width:100%;
-
-}
-
-/* Footer */
-
-footer{
-
-    flex-direction:column;
-
-    gap:10px;
-
-}
-
-}
-/* ==============================
-   PREMIUM BUTTON ANIMATION
-============================== */
-
-#countBtn{
-    position:relative;
-    overflow:hidden;
-}
-
-#countBtn::before{
-
-    content:"";
-
-    position:absolute;
-
-    top:-100%;
-    left:-100%;
-
-    width:300%;
-    height:300%;
-
-    background:
-    linear-gradient(
-    120deg,
-    transparent,
-    rgba(255,255,255,.5),
-    transparent);
-
-    transform:rotate(25deg);
-
-    transition:.8s;
-
-}
-
-#countBtn:hover::before{
-
-    left:100%;
-}
-
-/* ==============================
-   LOTUS ANIMATION
-============================== */
-
-.lotus{
-
-    position:fixed;
-
-    font-size:24px;
-
-    animation:fall 4s linear forwards;
-
-    pointer-events:none;
-
-    z-index:999;
-}
-
-@keyframes fall{
-
-    0%{
-
-        transform:
-        translateY(-50px)
-        rotate(0deg);
-
-        opacity:1;
-
-    }
-
-    100%{
-
-        transform:
-        translateY(100vh)
-        rotate(360deg);
-
-        opacity:0;
+        }, 5000);
 
     }
 
 }
 
-/* ==============================
-   CELEBRATION POPUP
-============================== */
+// ======================================
+// Chant Button
+// ======================================
 
-.popup{
+chantBtn.addEventListener("click", () => {
 
-    position:fixed;
+    if (currentCount >= TOTAL_BEADS) return;
 
-    left:50%;
-    top:50%;
+    // Start background music once
 
-    transform:translate(-50%,-50%);
+    if (!musicStarted && bgMusic) {
 
-    background:white;
+        bgMusic.volume = 0.25;
 
-    padding:35px;
+        bgMusic.play().catch(err => console.log(err));
 
-    width:320px;
-
-    border-radius:25px;
-
-    text-align:center;
-
-    box-shadow:0 20px 50px rgba(0,0,0,.25);
-
-    display:none;
-
-    z-index:9999;
-
-}
-
-.popup.show{
-
-    display:block;
-
-    animation:popup .5s;
-
-}
-
-@keyframes popup{
-
-    from{
-
-        transform:
-        translate(-50%,-60%)
-        scale(.6);
-
-        opacity:0;
+        musicStarted = true;
 
     }
 
-    to{
+    currentCount++;
+    totalChants++;
 
-        transform:
-        translate(-50%,-50%)
-        scale(1);
+    playBell();
 
-        opacity:1;
+    if (navigator.vibrate) {
+
+        navigator.vibrate([20, 20, 20]);
 
     }
 
-}
+    updateDisplay();
 
-.popup h2{
+    if (currentCount === TOTAL_BEADS) {
 
-    color:#d97706;
+        completedRounds++;
 
-    margin-bottom:15px;
+        updateDisplay();
 
-}
+        popup.classList.add("show");
 
-.popup button{
+        lotusRain();
 
-    margin-top:20px;
+    }
 
-    padding:12px 28px;
+});
 
-    border:none;
+// ======================================
+// Reset Current Round
+// ======================================
 
-    border-radius:25px;
+resetBtn.addEventListener("click", () => {
 
-    background:#ff9800;
+    currentCount = 0;
 
-    color:white;
+    updateDisplay();
 
-    cursor:pointer;
+});
 
-}
-#clearBtn{
+// ======================================
+// Clear Everything
+// ======================================
 
-    background:linear-gradient(135deg,#555,#222);
+clearBtn.addEventListener("click", () => {
 
-    color:white;
+    const ok = confirm("Do you want to clear all chanting history?");
 
-    box-shadow:0 10px 20px rgba(0,0,0,.3);
+    if (!ok) return;
 
-}
+    currentCount = 0;
+    totalChants = 0;
+    completedRounds = 0;
+
+    localStorage.removeItem("count");
+    localStorage.removeItem("total");
+    localStorage.removeItem("rounds");
+
+    updateDisplay();
+
+});
+
+// ======================================
+// Window Resize
+// ======================================
+
+window.addEventListener("resize", () => {
+
+    createBeads();
+
+    beads = document.querySelectorAll(".bead");
+
+    updateDisplay();
+
+});
