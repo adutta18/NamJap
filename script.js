@@ -268,3 +268,5 @@ window.addEventListener("resize", () => {
     updateDisplay();
 
 });
+<script data-goatcounter="https://ajoy.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
